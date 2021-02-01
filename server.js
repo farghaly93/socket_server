@@ -11,6 +11,7 @@ io.sockets.on('connection', (socket) => {
   
 
   socket.on('getId', async(_) => {
+    console.log('get id');
     socket.emit('socketId', socket.id);
   });
 
