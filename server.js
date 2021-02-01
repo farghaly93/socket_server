@@ -8,11 +8,10 @@ const port = 6969;
 
 io.sockets.on('connection', (socket) => {
   console.log('Connection', socket.id);
-  socket.emit('socketId', socket.id);
+  
 
-  socket.on('send', async(messageData) => {
-    const rooms = io.sockets.adapter.rooms[messageData.room];
-    io.sockets.in(messageData.room).emit('message', newMessage);
+  socket.on('getId', async(_) => {
+    socket.emit('socketId', socket.id);
   });
 
 
