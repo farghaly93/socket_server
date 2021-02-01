@@ -24,7 +24,7 @@ io.sockets.on('connection', (socket) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 })
 
 
