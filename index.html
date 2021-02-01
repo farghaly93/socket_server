@@ -1,0 +1,89 @@
+<head>
+  <style>
+    #buttons {
+      display: none;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 20px;
+      height: 1000px;
+      overflow-y: scroll;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px 50px;
+      background-color: purple;
+      font-size: 40px;
+      font-weight: bolder;
+      text-align: center;
+      color: #ffff; 
+    }
+    .button {
+      flex: 1;
+      height: 300px;
+      width: 300px;
+      background-color: yellow;
+      padding: 40px;
+      text-align: center;
+      border-radius: 250px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    .button h1 {
+      margin-top: auto;
+      margin-bottom: auto;
+      color: black;
+      font-size: 40;
+    }
+  </style>
+</head>
+<body>
+  
+  <input type="text" onKeydown="getSocketId(event)" id="sending"/>
+  <div id="buttons" style="display: none">
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    var socketId;
+    function getSocketId(e) {
+      if(e.keyCode == 13) {
+        socketId = e.target.value;
+        if(socketId != null) {
+          document.getElementById("sending").setAttribute("style", "display: none");
+          document.getElementById("buttons").style.display = "flex";
+        }
+      }
+    }
+    function sendInstruction(inst) {
+      console.log(inst);
+      socket.emit("sendInstruction", {id: socketId, inst});
+    }
+    function createButton() {
+        var buttons = "";
+        buttons += new Button("Record", "sendInstruction('record')").button();
+        buttons += new Button("Stop", "sendInstruction('stop')").button();
+        buttons += new Button("Zoom in", "sendInstruction('zoomIn')").button();
+        buttons += new Button("Zoom out", "sendInstruction('zoomOut')").button();
+        buttons += new Button("Switch camera", "sendInstruction('switchCamera')").button();
+        return buttons;
+      }
+    window.onload = () => {
+      document.getElementById("buttons").innerHTML = createButton();
+    }
+
+    class Button {
+      constructor(name, func) {
+        this.name = name;
+        this.func = func;
+      }
+      button() {
+        return '<div onclick="'+this.func+'" class="button">'+
+                  '<h1>'+this.name+'</h1>'+
+               '</div>';
+      }  
+    }
+  </script>
+</body>
+</html>

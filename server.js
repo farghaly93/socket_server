@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);;
 const io = require('socket.io')(server);
+const path = require("path");
 const port = 6969;
 
 
@@ -15,23 +16,16 @@ io.sockets.on('connection', (socket) => {
     socket.emit('socketId', socket.id);
   });
 
-
-
-  socket.on('join', data => {
-    const room = data.room;
-    socket.join(room);
-    const clientsLength = io.nsps['/'].adapter.rooms[room].length;
-    if(clientsLength > 0) {
-      io.sockets.to(room).emit('newUser', {message: `${data.username} has joined the chat..`, joined: true, joiners: clientsLength});
-      socket.emit('newUser', {message: `Welcome to this chat room.. ${data.username}`, joined: true, joiners: clientsLength});
-    } else {
-      socket.emit('newUser', {joined: false});
-    }
-  }); 
-
+  socket.on("sendInstruction", (data) => {
+    console.log(data);
+    socket.to(data.id).emit("instruction", {inst: data.inst});
+  });
 
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/index.html'));
+})
 
 
   server.listen(process.env.PORT || port, () => {
