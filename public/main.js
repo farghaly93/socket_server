@@ -31,10 +31,18 @@
       const btns = document.getElementsByClassName("ctrl");
       if(data.status == "started") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
+        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/stop.png");
       }
-      else if(data.status == "paused") {}
-      else if(data.status == "resumed") {}
-      else if(data.status == "stopped") {}
+      else if(data.status == "paused") {
+        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
+      }
+      else if(data.status == "resumed") {
+        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
+      }
+      else if(data.status == "stopped") {
+        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
+        btns[0].getElementsByTagName("IMG")[1].setAttribute("src", "./public/stop_empty.png");
+      }
     });
     function createButton() {
         var buttons = "";
