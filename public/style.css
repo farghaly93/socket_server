@@ -81,6 +81,7 @@ body {
   }
 .display {
     width: 99%;
+    height: 55%;
     flex: 4;
     background-color: rgba(33, 33, 36, 0.966);
   }
