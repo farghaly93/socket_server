@@ -29,7 +29,7 @@
     socket.on("status", status => {
       const btns = document.getElementsByClassName("ctrl");
       if(status == "started") {
-        btns[0].getElementsByTagName("IMG")[0].getAttribute("src") = "./public/pause.png";
+        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
       }
       else if(status == "paused") {}
       else if(status == "resumed") {}
