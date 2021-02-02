@@ -36,8 +36,11 @@
     function countTime() {
       timer = setInterval(() => {
         ++seconds;
-
-        document.getElementById("timer").innerHTML = seconds;
+        new Date(seconds*1000).toString();
+        var time = date.slice(16, 24).split("");
+        var hours = time[1] - 2;
+        time[1] = hours;
+        document.getElementById("timer").innerHTML = time;
       }, 1000);
     }
 
