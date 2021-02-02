@@ -19,7 +19,7 @@ io.sockets.on('connection', (socket) => {
 
   socket.on("sendInstruction", (data) => {
     console.log(data);
-    socket.to(data.id).emit("instruction", {inst: data.inst});
+    socket.to(data.id).emit("instruction", {inst: data.inst, id: socket.id});
   });
   socket.on("confirmId", id => {
     let confirmed = false;
@@ -29,6 +29,10 @@ io.sockets.on('connection', (socket) => {
     if(index.length == 0) confirmed = false;
     else confirmed = true;
     socket.emit("confirmed", {confirmed});
+  });
+
+  socket.on("status", data => {
+    socket.to(data.id).emit("status", {status: data.status});
   });
 
   socket.on("image", (image) => {
