@@ -27,6 +27,7 @@
       }
     }
     socket.on("status", data => {
+      console.log("status", data);
       const btns = document.getElementsByClassName("ctrl");
       if(data.status == "started") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
