@@ -64,6 +64,8 @@
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
         btns[1].getElementsByTagName("IMG")[0].setAttribute("src", "./public/stop_empty.png");
         clearInterval(timer);
+        seconds = 0;
+        document.getElementById("timer").innerHTML = "00:00:00";
       }
     });
 
