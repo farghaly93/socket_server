@@ -40,7 +40,7 @@
         var time = date.slice(16, 24).split("");
         var hours = time[1] - 2;
         time[1] = hours;
-        document.getElementById("timer").innerHTML = time;
+        document.getElementById("timer").innerHTML = time.join("");
       }, 1000);
     }
 

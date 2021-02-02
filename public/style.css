@@ -81,7 +81,7 @@ body {
   }
 .display {
     width: 99%;
-    height: 55%;
+    height: 200px;
     flex: 4;
     background-color: rgba(33, 33, 36, 0.966);
   }
@@ -89,7 +89,7 @@ body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    font-size: 40px;
+    font-size: 80px;
     font-weight: bolder;
     color: snow;
 }
