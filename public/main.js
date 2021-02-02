@@ -36,8 +36,8 @@
     function countTime() {
       timer = setInterval(() => {
         ++seconds;
-        
-        document.getElementsByTagName("timer").innerHTML = time;
+
+        document.getElementsByTagName("timer").innerHTML = seconds;
       }, 1000);
     }
 
