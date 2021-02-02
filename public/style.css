@@ -1,0 +1,108 @@
+body {
+    background-color:rgb(215, 215, 223);
+    background-image: url("https://thumbs.dreamstime.com/z/control-panel-abstract-technology-futuristic-interface-hud-vector-design-blue-background-control-panel-abstract-technology-144763872.jpg");
+    background-position: center;
+    background-size: cover;
+    background-clip: content-box;
+    background-blend-mode:soft-light;
+    background-color: rgb(139, 143, 146);
+}
+.socketId {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    margin-top: 10%;
+    width: 90%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(58, 58, 87, 0.637);
+}
+.socketId input {
+    /* position: relative;
+    top: 50%; */
+    height: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 80%;
+    font-size: 30px;
+    color: rgb(63, 57, 61);
+    text-align: center;
+}
+.socketId h3 {
+    color: seashell;
+}
+.socketId .btn {
+    margin: 20px;
+    padding: 20px 40px;
+    background-color: #121235c4;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(215, 215, 223);
+}
+.socketId .btn:hover {
+    background-color: #454565c4;
+}
+.button {
+  flex: 1;
+  height: 300px;
+  width: 300px;
+  background-color: yellow;
+  padding: 40px;
+  text-align: center;
+  border-radius: 250px;
+  margin: 20px;
+  cursor: pointer;
+}
+.button h1 {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: black;
+  font-size: 40;
+}
+#buttons {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    margin: 20px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: rgba(45, 106, 110, 0.685);
+    text-align: center;
+  }
+.display {
+    width: 99%;
+    height: 95%;
+    flex: 6;
+    background-color: rgba(33, 33, 36, 0.966);
+  }
+.controls {
+    flex: 1;
+    width: 99%;
+    height: 40%;
+    padding-top: 10px;
+    background-color: rgba(58, 58, 87, 0.637);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .ctrl {
+      height: 100px;
+      width: 100px;
+      border-radius: 50px;
+  }
+  .ctrl img {
+      width: 100px;
+      height: 100px;
+  }

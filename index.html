@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./public/style.css" type="text/css"/>
+  </head>
+  <body>
+
+  <div class="socketId">
+    <h3>Enter your internet id from the mobile application</h3>
+    <input type="text" onKeydown="getSocketId(event)" id="sending" placeholder="socket ID"/>
+    <div id="alert"></div>
+    <a class="btn" type="submit" onclick="continueToControls()">Continue</a>
+  </div>
+  
+  <div id="buttons" style="display: none">
+    <div class="display"></div>
+    <div class="controls">
+      <div class="ctrl">
+        <img src="./public/record.png" onclick="sendInstruction('record')"/>
+      </div>
+      <div class="ctrl">
+        <img src="./public/stop.png" onclick="sendInstruction('stop')"/>
+      </div>
+      <div class="ctrl">
+        <img src="./public/add.png" onclick="sendInstruction('zoomIn')"/>
+      </div>
+      <div class="ctrl">
+        <img src="./public/decrease.png" onclick="sendInstruction('zoomOut')"/>
+      </div>
+      <div class="ctrl">
+        <img src="./public/switch.png" onclick="sendInstruction('switchCamera')"/>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./public/main.js"></script>
+  
+</body>
+</html>
