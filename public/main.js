@@ -26,14 +26,14 @@
         });
       }
     }
-    socket.on("status", status => {
+    socket.on("status", data => {
       const btns = document.getElementsByClassName("ctrl");
-      if(status == "started") {
+      if(data.status == "started") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
       }
-      else if(status == "paused") {}
-      else if(status == "resumed") {}
-      else if(status == "stopped") {}
+      else if(data.status == "paused") {}
+      else if(data.status == "resumed") {}
+      else if(data.status == "stopped") {}
     });
     function createButton() {
         var buttons = "";
