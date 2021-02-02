@@ -82,25 +82,39 @@ body {
 .display {
     width: 99%;
     height: 95%;
-    flex: 6;
+    flex: 4;
     background-color: rgba(33, 33, 36, 0.966);
   }
+.display .timer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+    font-weight: bolder;
+    color: snow;
+}
 .controls {
     flex: 1;
     width: 99%;
     height: 40%;
     padding-top: 10px;
     background-color: rgba(58, 58, 87, 0.637);
-    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
   }
   .ctrl {
-      height: 100px;
-      width: 100px;
-      border-radius: 50px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+  }
+  .ctrl:hover {
+      height: 120px;
+      width: 120px;
+      border: 2px solid #333;
   }
   .ctrl img {
       width: 100px;
