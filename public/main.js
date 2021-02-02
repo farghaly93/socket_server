@@ -26,6 +26,15 @@
         });
       }
     }
+    socket.on("status", status => {
+      const btns = document.getElementsByClassName("ctrl");
+      if(status == "started") {
+        btns[0].getElementsByTagName("IMG")[0].getAttribute("src") = "./public/pause.png";
+      }
+      else if(status == "paused") {}
+      else if(status == "resumed") {}
+      else if(status == "stopped") {}
+    });
     function createButton() {
         var buttons = "";
         buttons += new Button("Record", "sendInstruction('record')").button();
