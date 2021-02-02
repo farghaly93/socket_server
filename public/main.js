@@ -37,7 +37,7 @@
       timer = setInterval(() => {
         ++seconds;
 
-        document.getElementsByTagName("timer").innerHTML = seconds;
+        document.getElementsById("timer").innerHTML = seconds;
       }, 1000);
     }
 
