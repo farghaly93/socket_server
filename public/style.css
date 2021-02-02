@@ -111,12 +111,12 @@ body {
     width: 100px;
     border-radius: 50px;
   }
-  .ctrl:hover {
-      height: 120px;
-      width: 120px;
-      border: 2px solid #333;
-  }
   .ctrl img {
       width: 100px;
       height: 100px;
   }
+  
+  .ctrl img:hover {
+    height: 120px;
+    width: 120px;
+}

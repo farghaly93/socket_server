@@ -1,18 +1,24 @@
     const socket = io();
     var socketId;
+    var timer;
+    var seconds = 0;
     function getSocketId(e) {
       if(e.keyCode == 13) {
         socketId = e.target.value;
         testSocket();
       }
     }
+
+    
     function continueToControls() {
       socketId = document.getElementById("sending").value;
       testSocket();
     }
+
     function sendInstruction(inst) {
       socket.emit("sendInstruction", {id: socketId, inst});
     }
+
     function testSocket() {
       if(socketId != "") {
         socket.emit("confirmId", socketId);
@@ -26,45 +32,39 @@
         });
       }
     }
+
+    function countTime() {
+      timer = setInterval(() => {
+        ++seconds;
+        
+        document.getElementsByTagName("timer").innerHTML = time;
+      }, 1000);
+    }
+
     socket.on("status", data => {
       console.log("status", data);
       const btns = document.getElementsByClassName("ctrl");
       if(data.status == "started") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
         btns[1].getElementsByTagName("IMG")[0].setAttribute("src", "./public/stop.png");
+        countTime();
       }
       else if(data.status == "paused") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
+        clearInterval(timer);
       }
       else if(data.status == "resumed") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
+        countTime();
       }
       else if(data.status == "stopped") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
         btns[1].getElementsByTagName("IMG")[0].setAttribute("src", "./public/stop_empty.png");
+        clearInterval(timer);
       }
     });
-    function createButton() {
-        var buttons = "";
-        buttons += new Button("Record", "sendInstruction('record')").button();
-        buttons += new Button("Stop", "sendInstruction('stop')").button();
-        buttons += new Button("Zoom in", "sendInstruction('zoomIn')").button();
-        buttons += new Button("Zoom out", "sendInstruction('zoomOut')").button();
-        buttons += new Button("Switch camera", "sendInstruction('switchCamera')").button();
-        return buttons;
-      }
+
     window.onload = () => {
       // document.getElementById("buttons").innerHTML = createButton();
     }
 
-    class Button {
-      constructor(name, func) {
-        this.name = name;
-        this.func = func;
-      }
-      button() {
-        return '<div onclick="'+this.func+'" class="button">'+
-                  '<h1>'+this.name+'</h1>'+
-               '</div>';
-      }  
-    }
