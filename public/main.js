@@ -31,7 +31,7 @@
       const btns = document.getElementsByClassName("ctrl");
       if(data.status == "started") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/pause.png");
-        btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/stop.png");
+        btns[0].getElementsByTagName("IMG")[1].setAttribute("src", "./public/stop.png");
       }
       else if(data.status == "paused") {
         btns[0].getElementsByTagName("IMG")[0].setAttribute("src", "./public/record.png");
