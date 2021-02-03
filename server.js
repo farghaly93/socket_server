@@ -21,11 +21,11 @@ io.sockets.on('connection', (socket) => {
     console.log(data);
     socket.to(data.id).emit("instruction", {inst: data.inst, id: socket.id});
   });
-  socket.on("confirmId", id => {
+  socket.on("confirmId", data => {
     console.log("nonono");
     let confirmed = false;
     var sockets = io.sockets.clients();
-    const index = Object.keys(sockets.sockets).filter(sId => sId == id);
+    const index = Object.keys(sockets.sockets).filter(sId => sId == data.id);
     console.log(index);
     if(index.length == 0) confirmed = false;
     else confirmed = true;
