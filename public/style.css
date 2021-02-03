@@ -47,7 +47,7 @@ body {
 .socketId .btn:hover {
     background-color: #454565c4;
 }
-.container {
+#container {
     display: none;
     height: 700px;
     flex-direction: column;
