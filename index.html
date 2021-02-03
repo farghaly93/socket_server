@@ -12,25 +12,23 @@
     <a class="btn" type="submit" onclick="continueToControls()">Continue</a>
   </div>
   <div class="container">
-    <div id="buttons" style="display: none">
-      <div class="display">
-        <div id="timer"></div>
-      </div>
+    <div id="buttons">
+      <div id="timer">00:00:00</div>
       <div class="controls">
         <div class="ctrl">
-          <img src="./public/record.png" onclick="sendInstruction('record')"/>
+          <img class="record" src="./public/record.png" onclick="sendInstruction('record')"/>
         </div>
         <div class="ctrl">
-          <img src="./public/stop_empty.png" onclick="sendInstruction('stop')"/>
+          <img class="stop" src="./public/stop_empty.png" onclick="sendInstruction('stop')"/>
         </div>
         <div class="ctrl">
-          <img src="./public/add.png" onclick="sendInstruction('zoomIn')"/>
+          <img class="zoomIn" src="./public/add.png" onclick="sendInstruction('zoomIn')"/>
         </div>
         <div class="ctrl">
-          <img src="./public/decrease.png" onclick="sendInstruction('zoomOut')"/>
+          <img class="zoomOut" src="./public/decrease.png" onclick="sendInstruction('zoomOut')"/>
         </div>
         <div class="ctrl">
-          <img src="./public/switch.png" onclick="sendInstruction('switchCamera')"/>
+          <img class="switchCamera" src="./public/switch.png" onclick="sendInstruction('switchCamera')"/>
         </div>
       </div>
     </div>

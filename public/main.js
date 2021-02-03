@@ -16,6 +16,9 @@
     }
 
     function sendInstruction(inst) {
+      const el = document.getElementsByClassName(inst)[0];
+      el.classList.add("pressed");
+      setTimeout(() => el.classList.remove("pressed"), 100);
       socket.emit("sendInstruction", {id: socketId, inst});
     }
 
@@ -23,9 +26,9 @@
       if(socketId != "") {
         socket.emit("confirmId", socketId);
         socket.on("confirmed", data => {
-          if(data.confirmed) {
+          if(!data.confirmed) {
             document.getElementsByClassName("socketId")[0].setAttribute("style", "display: none");
-            document.getElementById("buttons").style.display = "flex";
+            document.getElementById("container").style.display = "flex";
           } else {
             document.getElementById("alert").innerHTML = "<h3 style='color: red'>there is no device connected with this ID</h3>";
           }

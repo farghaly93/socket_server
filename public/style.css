@@ -1,5 +1,4 @@
 body {
-    background-color:rgb(215, 215, 223);
     background-image: url("https://thumbs.dreamstime.com/z/control-panel-abstract-technology-futuristic-interface-hud-vector-design-blue-background-control-panel-abstract-technology-144763872.jpg");
     background-position: center;
     background-size: cover;
@@ -48,31 +47,14 @@ body {
 .socketId .btn:hover {
     background-color: #454565c4;
 }
-.button {
-  flex: 1;
-  height: 300px;
-  width: 300px;
-  background-color: yellow;
-  padding: 40px;
-  text-align: center;
-  border-radius: 250px;
-  margin: 20px;
-  cursor: pointer;
-}
-.button h1 {
-  margin-top: auto;
-  margin-bottom: auto;
-  color: black;
-  font-size: 40;
-}
 .container {
-    display: flex;
+    display: none;
+    height: 700px;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 #buttons {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -84,16 +66,12 @@ body {
     background-color: rgba(45, 106, 110, 0.685);
     text-align: center;
   }
-.display {
+#timer {
+    text-align: center;
     width: 99%;
     height: 300px;
     flex: 4;
     background-color: rgba(33, 33, 36, 0.966);
-  }
-.display #timer {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 80px;
     font-weight: bolder;
     color: snow;
@@ -102,7 +80,7 @@ body {
     flex: 1;
     width: 99%;
     /* height: 40%; */
-    padding-top: 10px;
+    padding: 10px 0px 10px 0px;
     background-color: rgba(58, 58, 87, 0.637);
     display: flex;
     flex-direction: row;
@@ -116,12 +94,46 @@ body {
     width: 100px;
     border-radius: 50px;
   }
-  .ctrl img {
-      width: 100px;
-      height: 100px;
-  }
-  
-  .ctrl img:hover {
+.ctrl img {
+    width: 100px;
+    height: 100px;
+}
+.ctrl img:hover {
     height: 105px;
     width: 105px;
+}
+.ctrl img.pressed {
+    width: 80px;
+    height: 80px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .socketId {
+        height: 300px;
+        margin-top: 130px;
+    }
+    .container {
+        height: 500px;
+    }
+    #timer {
+        height: 100px;
+        font-size: 40px;
+    }
+    .ctrl {
+        height: 50px;
+        width: 50px;
+    } 
+    .ctrl img {
+        width: 50px;
+        height: 50px;
+    }
+    .ctrl img.pressed {
+        width: 35px;
+        height: 35px;
+    }
+    .ctrl img:hover {
+        height: 52px;
+        width: 52px;
+    }
 }

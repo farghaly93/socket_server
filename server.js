@@ -22,6 +22,7 @@ io.sockets.on('connection', (socket) => {
     socket.to(data.id).emit("instruction", {inst: data.inst, id: socket.id});
   });
   socket.on("confirmId", id => {
+    console.log("nonono");
     let confirmed = false;
     var sockets = io.sockets.clients();
     const index = Object.keys(sockets.sockets).filter(sId => sId == id);
