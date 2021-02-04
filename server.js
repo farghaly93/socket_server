@@ -44,7 +44,7 @@ io.sockets.on('connection', (socket) => {
 
 app.use('/public', express.static('./public/'));
 
-app.get('/control', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 })
 
