@@ -2,6 +2,8 @@
     var socketId;
     var timer;
     var seconds = 0;
+    zoomValue = 0;
+
     function getSocketId(e) {
       if(e.keyCode == 13) {
         socketId = e.target.value;
@@ -26,7 +28,7 @@
       if(socketId != "") {
         socket.emit("confirmId", {id: socketId});
         socket.on("confirmed", data => {
-          if(data.confirmed) {
+          if(!data.confirmed) {
             document.getElementsByClassName("socketId")[0].setAttribute("style", "display: none");
             document.getElementById("container").style.display = "flex";
           } else {
@@ -71,7 +73,16 @@
         document.getElementById("timer").innerHTML = "00:00:00";
       }
     });
+    socket.on("zoom", (data) => {
+      zoomValue = data.zoomValue;
+      document.getElementById("zoom").value = (data.zoomValue / 4) * 100;
+    });
 
+    function changeZoom(val) {
+      const value = (val/100) * 4
+      console.log(value);
+      socket.emit({zoomValue, value, id: socketId});
+    }
     window.onload = () => {
       // document.getElementById("buttons").innerHTML = createButton();
     }

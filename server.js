@@ -11,33 +11,37 @@ const port = 6969;
 io.sockets.on('connection', (socket) => {
   console.log('Connection', socket.id);
   
-
+//from client to controller
   socket.on('getId', async(_) => {
     console.log('get id');
     socket.emit('socketId', socket.id);
   });
 
+  //from controller to client
   socket.on("sendInstruction", (data) => {
-    console.log(data);
     socket.to(data.id).emit("instruction", {inst: data.inst, id: socket.id});
   });
+
+  //from client to controller
   socket.on("confirmId", data => {
-    console.log("nonono");
     let confirmed = false;
     var sockets = io.sockets.clients();
     const index = Object.keys(sockets.sockets).filter(sId => sId == data.id);
     console.log(index);
     if(index.length == 0) confirmed = false;
     else confirmed = true;
+
     socket.emit("confirmed", {confirmed});
   });
 
+  //from client to controller
   socket.on("status", data => {
     socket.to(data.id).emit("status", {status: data.status});
   });
 
-  socket.on("image", (image) => {
-    console.log(image);
+  //from client to controller and from controller to client
+  socket.on("zoom", (data) => {
+    socket.to(data.id).emit("zoom", {zoomValue: data.zoomValue});
   });
 
 });
