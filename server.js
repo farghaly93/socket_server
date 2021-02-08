@@ -42,6 +42,7 @@ io.sockets.on('connection', (socket) => {
 
   //from client to controller and from controller to client
   socket.on("zoom", (data) => {
+    console.log("zoom", data);
     socket.to(data.id).emit("zoom", {zoomValue: data.zoomValue});
   });
 
