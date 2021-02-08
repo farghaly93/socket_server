@@ -81,7 +81,7 @@
     function changeZoom(val) {
       const value = (val/100) * 4
       console.log(value);
-      socket.emit({zoomValue: value, id: socketId});
+      socket.emit("zoom", {zoomValue: value, id: socketId});
     }
     window.onload = () => {
       // document.getElementById("buttons").innerHTML = createButton();
