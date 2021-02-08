@@ -75,7 +75,7 @@
     });
     socket.on("zoom", (data) => {
       zoomValue = data.zoomValue;
-      document.getElementById("zoom").value = (data.zoomValue / 4) * 100;
+      document.getElementsByClassName("zoom")[0].value = (data.zoomValue / 4) * 100;
     });
 
     function changeZoom(val) {
