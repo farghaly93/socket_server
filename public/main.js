@@ -28,7 +28,7 @@
       if(socketId != "") {
         socket.emit("confirmId", {id: socketId});
         socket.on("confirmed", data => {
-          if(!data.confirmed) {
+          if(data.confirmed) {
             document.getElementsByClassName("socketId")[0].setAttribute("style", "display: none");
             document.getElementById("container").style.display = "flex";
           } else {
