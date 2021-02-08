@@ -19,6 +19,7 @@ io.sockets.on('connection', (socket) => {
 
   //from controller to client
   socket.on("sendInstruction", (data) => {
+    console.log(data);
     socket.to(data.id).emit("instruction", {inst: data.inst, id: socket.id});
   });
 
